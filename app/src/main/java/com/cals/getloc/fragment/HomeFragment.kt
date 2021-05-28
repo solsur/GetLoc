@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.cals.getloc.fragment
 
 import android.os.Bundle
@@ -24,5 +26,17 @@ class HomeFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val btnSearch:ImageView = view.findViewById(R.id.btnsearch)
+        val planFragment = PlanFragment()
+
+        btnSearch.setOnClickListener {
+           fragmentManager?.beginTransaction()?.apply {
+               replace(R.id.frameLayout, planFragment, PlanFragment::class.java.simpleName)
+                   .addToBackStack(null)
+                   .commit()
+
+           }
+        }
     }
+
+
 }

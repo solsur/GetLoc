@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val bottom_navigation = findViewById(R.id.bottom_navigation) as BottomNavigationView
+        val bottom_navigation = findViewById<BottomNavigationView>(R.id.bottom_navigation)
 
         setCurrentFragment(homeFragment)
 
@@ -57,4 +57,6 @@ class MainActivity : AppCompatActivity() {
         transactions.replace(R.id.frameLayout, fragment)
         transactions.commit()
     }
+
+
 }
